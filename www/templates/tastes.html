@@ -1,0 +1,17 @@
+<ion-view view-title="Tastes">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon" ng-click="showTasteModal()">
+      <i class="ion-plus-round header-button"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content scroll="true" class="content-main">
+    <ion-list class="list-custom">
+      <ion-item ng-repeat="taste in tastes" class="item-custom">
+        {{taste.name}}
+        <a class="icon-right ion-chevron-right"></a>
+        <!--ng-click="removeTobacco(tobacco)"-->
+        <span class="span-weight">{{taste.quantity}} g</span>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

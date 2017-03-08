@@ -1,0 +1,33 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-secondary, bar-custom">
+
+    <!-- Modal header bar -->
+
+    <h1 class="title header">New Taste</h1>
+    <button class="button button-clear button-positive" ng-click="hideTasteModal()">
+      <i class="ion-close-round header-button"></i>
+    </button>
+  </ion-header-bar>
+
+  <!-- Modal content area -->
+  <ion-content scroll="false">
+
+    <form ng-submit="addTaste(taste)">
+      <div class="list">
+        <label class="item item-input" id="firstInput">
+          <input type="text" placeholder="Name" ng-model="taste.name">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Quantity" ng-model="taste.quantity">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Price" ng-model="taste.price">
+        </label>
+      </div>
+      <div class="submit-button-div">
+        <button type="submit" class="button button-block button-balanced">Add</button>
+      </div>
+    </form>
+
+  </ion-content>
+</ion-modal-view>

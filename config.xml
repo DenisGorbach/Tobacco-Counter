@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<widget id="com.ionicframework.tobaccocounter320227" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>Tobacco Counter</name>
+  <description>
+        An Ionic Framework and Cordova project.
+    </description>
+  <author email="you@example.com" href="http://example.com/">
+      Your Name Here
+    </author>
+  <content src="index.html"/>
+  <access origin="*"/>
+  <icon src="hookah.png"/>
+  <preference name="webviewbounce" value="false"/>
+  <preference name="UIWebViewBounce" value="false"/>
+  <preference name="DisallowOverscroll" value="true"/>
+  <preference name="SplashScreenDelay" value="2000"/>
+  <preference name="FadeSplashScreenDuration" value="2000"/>
+  <preference name="android-minSdkVersion" value="16"/>
+  <preference name="BackupWebStorage" value="none"/>
+  <feature name="StatusBar">
+    <param name="ios-package" value="CDVStatusBar" onload="true"/>
+  </feature>
+  <allow-navigation href="http://192.168.88.97:8101"/>
+  <allow-navigation href="http://192.168.88.97:8100"/>
+  <allow-navigation href="http://192.168.1.104:8100"/>
+  <allow-navigation href="http://192.168.1.104:8101"/>
+</widget>

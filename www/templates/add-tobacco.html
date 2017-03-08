@@ -1,0 +1,33 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-secondary, bar-custom">
+
+    <!-- Modal header bar -->
+
+    <h1 class="title header">New Tobacco</h1>
+    <button class="button button-clear button-positive" ng-click="hideTobaccoModal()">
+      <i class="ion-close-round header-button"></i>
+    </button>
+  </ion-header-bar>
+
+  <!-- Modal content area -->
+  <ion-content scroll="false">
+
+    <form ng-submit="addTobacco(tobacco)">
+      <div class="list">
+        <label class="item item-input" id="firstInput">
+          <input type="text" placeholder="Name" ng-model="tobacco.name">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Quantity" ng-model="tobacco.quantity">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Price" ng-model="tobacco.price">
+        </label>
+      </div>
+      <div class="submit-button-div">
+        <button type="submit" class="button button-block button-balanced">Add</button>
+      </div>
+    </form>
+
+  </ion-content>
+</ion-modal-view>

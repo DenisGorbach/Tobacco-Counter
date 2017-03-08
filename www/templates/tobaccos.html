@@ -1,0 +1,18 @@
+<ion-view view-title="Tobaccos">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon" ng-click="showTobaccoModal()">
+      <i class="ion-plus-round header-button"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content scroll="true" class="content-main">
+    <ion-list class="list-custom">
+      <ion-item ng-repeat="tobacco in tobaccos" class="item-custom slideOutLeft animated" ng-click="openTobaccoTaste(tobacco.id)" on-swipe-left="removeTobacco(tobacco)">
+        {{tobacco.name}}
+        <a class="icon-right ion-chevron-right" href="#/app/tastes/{{tobacco.id}}"></a>
+        <!--ng-click="removeTobacco(tobacco)"-->
+        <span class="span-weight">{{tobacco.quantity}} g</span>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
+

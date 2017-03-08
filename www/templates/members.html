@@ -1,0 +1,17 @@
+<ion-view view-title="Members">
+  <!--<ion-nav-buttons side="right">-->
+    <!--<button class="button button-icon" ng-click="showTasteModal()">-->
+      <!--<i class="ion-plus-round header-button"></i>-->
+    <!--</button>-->
+  <!--</ion-nav-buttons>-->
+  <ion-content scroll="true" class="content-main">
+    <ion-list class="list-custom">
+      <div class="submit-button-div">
+        <button type="submit" class="button button-block button-balanced">Add</button>
+      </div>
+      <ion-item ng-repeat="member in members" class="item-custom">
+        {{member.name}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
