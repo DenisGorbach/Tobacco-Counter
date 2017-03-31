@@ -1,0 +1,48 @@
+<ion-view view-title={{sessionTitle}}>
+  <ion-nav-buttons side="right">
+    <button class="button button-icon" ng-click="addNewSmokeSession()" ng-if="isCheckedShown">
+      <i class="ion-checkmark-round header-button"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="content-main">
+    <button ng-click="openDatePicker()" class="button date-picker">{{selectedDate | date:"mediumDate"}}</button>
+    <ion-tabs>
+      <ion-tab title = "Tobaccos" class="tab-item-positive">
+        <div class="tab-list-area">
+          <ion-list class="list-custom tab-list">
+            <ion-item ng-repeat="tobacco in tobaccoTastes" class="item-custom" >
+              {{tobacco.taste}} ({{tobacco.name}})
+            </ion-item>
+            <button type="submit" class="button button-balanced button-smoke-session" ng-click="addTobaccoTaste()">Add tobacco</button>
+          </ion-list>
+        </div>
+      </ion-tab>
+      <ion-tab title = "Members">
+        <div class="tab-list-area">
+        <ion-list class="list-custom tab-list">
+          <ion-item ng-repeat="member in members" class="item-custom" >
+            {{member.name}}
+          </ion-item>
+          <button type="submit" class="button button-balanced button-smoke-session" ng-click="addMember()">Add member</button>
+        </ion-list>
+        </div>
+      </ion-tab>
+      <ion-tab title = "Other">
+        <div class="tab-list-area">
+          <ion-list class="list-custom tab-list">
+            <ion-item ng-repeat="otherItem in other" class="item-custom" >
+              {{otherItem.name}}
+            </ion-item>
+            <button type="submit" class="button button-balanced button-smoke-session">Add other item</button>
+          </ion-list>
+        </div>
+      </ion-tab>
+    </ion-tabs>
+    <div class="session-labels">
+        <ion-label class="label-header">Total price</ion-label>
+        <ion-label class="label-header">Price for one</ion-label>
+        <ion-label>{{priceTotal}}$</ion-label>
+        <ion-label>{{priceForOnePerson}}$</ion-label>
+    </div>
+  </ion-content>
+</ion-view>

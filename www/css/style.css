@@ -148,7 +148,7 @@ ion-tabs div{
   border: solid #5F96F8;
   padding-left: 10px;
   padding-right: 10px;
-  height: 50%;
+  height: 300px;
 }
 
 .tab-title{
@@ -165,6 +165,20 @@ ion-tabs div{
   border-radius: 10px;
 }
 
-.item-session{
-  margin-top: 350px;
+.session-labels{
+  padding-top: 370px;
 }
+
+.input-label{
+  display:inline-table;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 45%;
+  margin: 5px;
+  text-align: center;
+}
+
+.label-header{
+  background-color: #5F96F8;
+}
+

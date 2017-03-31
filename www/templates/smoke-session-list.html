@@ -1,0 +1,13 @@
+<ion-view view-title="Smoke sessions">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon" ng-click="addNewSmokeSession()">
+      <i class="ion-plus-round header-button"></i>
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="content-main">
+    <ion-item ng-repeat="session in sessions" class="item-custom">
+      {{session.date | date:"mediumDate"}}
+    </ion-item>
+    <button type="submit" class="button button-block button-balanced" ng-click="refreshSessions()">Refresh</button>
+  </ion-content>
+</ion-view>

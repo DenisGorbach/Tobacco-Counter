@@ -26,12 +26,21 @@ var starter = angular.module('starterApp', ['ionic', 'ngCordova', 'ionic-datepic
         }
       }
     })
-    .state('app.smokeSessions', {
-      url: '/smoke-sessions',
+    .state('app.smokeSessionList', {
+      url: '/smoke-session-list',
       views: {
         'menuContent': {
-          templateUrl: 'templates/smoke-sessions.html',
-          controller: 'sessionCtrl'
+          templateUrl: 'templates/smoke-session-list.html',
+          controller: 'sessionListCtrl'
+        }
+      }
+    })
+    .state('app.smokeSessionItem', {
+      url: '/smoke-session-item/:sessionId',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/smoke-session.html',
+          controller: 'sessionItemCtrl'
         }
       }
     })
@@ -86,7 +95,13 @@ var starter = angular.module('starterApp', ['ionic', 'ngCordova', 'ionic-datepic
       db = $cordovaSQLite.openDB({name: "tobacco.db", location: "default"});
       $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS tobaccos (id	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, name	TEXT, quantity	REAL, price	REAL)");
       $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS `tastes` (`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,`name`	TEXT,`quantity`	REAL,`price`	REAL,`tobacco-id`	INTEGER, FOREIGN KEY (`tobacco-id`) REFERENCES tobaccos(id));)");
-      $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS `Members` (`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, `name`	TEXT);");
+      $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS `members` (`id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, `name`	TEXT);");
+      $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS `smoke_sessions` (`id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE, `date` TEXT)");
+      $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS `smoke_sessions_members` (`session_id` INTEGER, `member_id` INTEGER,PRIMARY KEY(session_id, member_id))");
+      $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS `smoke_sessions_tastes` (`session_id` INTEGER,`taste_id` INTEGER,`tobacco_taste_count` REAL, PRIMARY KEY(session_id,taste_id))");
+      // $cordovaSQLite.execute(db, "DELETE FROM smoke_sessions;");
+      // $cordovaSQLite.execute(db, "INSERT INTO smoke_sessions (date) VALUES (1489501491074);");
+
       var query = "SELECT * FROM tobaccos;";
       $cordovaSQLite.execute(db, query, []).then(function(res) {
         for (var i = 0; i < res.rows.length; i++) {
